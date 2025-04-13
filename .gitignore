@@ -1,0 +1,6 @@
+/build
+/cookie-chrome-session
+/dist
+AutoClicker.spec
+click_macro.py
+selenium_golden_cookie_clicker.py
