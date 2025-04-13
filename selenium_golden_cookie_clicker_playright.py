@@ -27,9 +27,6 @@ with latest_save_file.open() as f:
     SAVE_CODE = f.readline()
 
 
-
-
-
 async def key_listener():
     global is_paused
     
@@ -65,7 +62,6 @@ async def clickBigCookie(page):
 
 
 async def huntGoldenCookies(page):
-    
 
     if game_is_saving == False:
         while True:
@@ -73,7 +69,6 @@ async def huntGoldenCookies(page):
                 while is_paused:
                     await asyncio.sleep(0.1)  # Wait here while paused
                     
-                
                 golden_cookies = await page.locator('div[alt="Golden cookie"]').element_handles()
                 # golden_cookies = await page.locator('.shimmer').all()
 
@@ -110,6 +105,7 @@ async def wait_for_loading_to_finish(page):
     # Wait until the big cookie is available to be clicked, indicating the game has loaded.
     await page.locator("#bigCookie").wait_for(state="attached")
     print("Loading finished, game is ready!")
+
 
 def date_today():
     local_time = time.localtime()
@@ -153,6 +149,7 @@ async def save_game(page):
         game_is_saving = False
         await asyncio.sleep(1)
 
+
 async def main(save_code):
     async with async_playwright() as p:
 
@@ -185,8 +182,6 @@ async def main(save_code):
 
         
         # threading.Thread(target=key_listener,daemon = True).start()
-
-
 
 
         await asyncio.gather(
