@@ -21,7 +21,7 @@ game_is_saving = False
 SAVE_FILE_FOLDER= Path(fr"{os.getenv('COOKIE_SAVE_FOLDER')}")
 save_files = list(SAVE_FILE_FOLDER.iterdir())
 latest_save_file = save_files[-1]
-print(split(latest_save_file,"\\"))
+print(str(latest_save_file).split("\\")[-1])
 
 with latest_save_file.open() as f:
     SAVE_CODE = f.readline()
